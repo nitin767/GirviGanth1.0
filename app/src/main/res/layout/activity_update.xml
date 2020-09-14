@@ -1,10 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateActivity">
+    tools:context=".AddCustomer">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/editTextCustomerName2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Customer Name"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextFatherName2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Village"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextVillage2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVillage2" />
+
+    <EditText
+        android:id="@+id/editTextVillage2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Father Name"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCustomerName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextCustomerName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName2" />
+
+    <EditText
+        android:id="@+id/editTextPhone2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Phone No."
+        android:inputType="phone"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextFatherName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextFatherName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFatherName2" />
+
+    <Button
+        android:id="@+id/btUpdateCustomer"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
+        android:background="#FF9800"
+        android:padding="20dp"
+        android:shadowColor="#FF9800"
+        android:text="UPDATE Customer"
+        android:textColor="#020202"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPhone2"
+        app:layout_constraintStart_toStartOf="@+id/editTextPhone2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
+
+    <Button
+        android:id="@+id/btDeleteCustomer"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="#FFC107"
+        android:padding="20dp"
+        android:shadowColor="#FF9800"
+        android:text="Delete Customer"
+        android:textColor="#F10000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btUpdateCustomer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btUpdateCustomer"
+        app:layout_constraintTop_toBottomOf="@+id/btUpdateCustomer" />
+</androidx.constraintlayout.widget.ConstraintLayout>
