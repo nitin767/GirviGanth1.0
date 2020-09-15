@@ -7,7 +7,7 @@
     tools:context=".AddCustomer">
 
     <EditText
-        android:id="@+id/editTextCustomerName"
+        android:id="@+id/editTextItemName"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextFatherName"
+        android:id="@+id/editTextMetalName"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -28,12 +28,12 @@
         android:hint="Metal Name"
         android:inputType="textPersonName"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCustomerName"
-        app:layout_constraintStart_toStartOf="@+id/editTextCustomerName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
+        app:layout_constraintStart_toStartOf="@+id/editTextItemName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextItemName" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/editTextActualWeight"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -41,12 +41,12 @@
         android:hint="Actual Weight in Grams"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextFatherName"
-        app:layout_constraintStart_toStartOf="@+id/editTextFatherName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFatherName" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextMetalName"
+        app:layout_constraintStart_toStartOf="@+id/editTextMetalName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMetalName" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/editTextWastageWeight"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -54,12 +54,12 @@
         android:hint="Wastage Weight in Grams"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextActualWeight"
+        app:layout_constraintStart_toStartOf="@+id/editTextActualWeight"
+        app:layout_constraintTop_toBottomOf="@+id/editTextActualWeight" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal3"
+        android:id="@+id/editTextPurity"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -67,12 +67,12 @@
         android:hint="Purity in %"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal2"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextWastageWeight"
+        app:layout_constraintStart_toStartOf="@+id/editTextWastageWeight"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWastageWeight" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal4"
+        android:id="@+id/editTextMetalRate"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -80,8 +80,8 @@
         android:hint="Metal Rate"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+        app:layout_constraintStart_toStartOf="@+id/editTextPurity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPurity" />
 
     <Button
         android:id="@+id/btAddCustomer"
@@ -94,7 +94,7 @@
         android:textColor="#020202"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal4"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal4" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextMetalRate"
+        app:layout_constraintStart_toStartOf="@+id/editTextMetalRate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMetalRate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

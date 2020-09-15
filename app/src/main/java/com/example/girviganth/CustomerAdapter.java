@@ -53,7 +53,7 @@ public class CustomerAdapter  extends RecyclerView.Adapter<CustomerAdapter.MyVie
         holder.customer_village_txt.setText(String.valueOf(customer_village.get(position)));
         holder.customer_phone_txt.setText(String.valueOf(customer_phone.get(position)));
         //for UpdateActivity
-        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+        holder.customerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateCustomer.class);
@@ -78,7 +78,7 @@ public class CustomerAdapter  extends RecyclerView.Adapter<CustomerAdapter.MyVie
 
         TextView customer_id_txt, customer_name_txt, customer_father_txt, customer_village_txt, customer_phone_txt;
         //customer_row.xml LinearLayout ID onClick to updateActivity
-        LinearLayout mainLayout;
+        LinearLayout customerLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,7 +88,7 @@ public class CustomerAdapter  extends RecyclerView.Adapter<CustomerAdapter.MyVie
             customer_village_txt = itemView.findViewById(R.id.customer_village_text);
             customer_phone_txt = itemView.findViewById(R.id.customer_phone_text);
             //Find the ID of LinearLayout customer_row.xml for UpdateActivity
-            mainLayout = itemView.findViewById(R.id.mainLayout);
+            customerLayout = itemView.findViewById(R.id.customerLayout);
 
         }
     }

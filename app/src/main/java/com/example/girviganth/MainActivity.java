@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     MyDatabaseHelper myDB;
     ArrayList<String> customer_id, customer_name, customer_father, customer_village, customer_phone;
-    CustomerAdapter customAdapter;
+    CustomerAdapter customerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         storeDataInArrays();
          //for re-fresh Activity
         //customAdapter = new CustomAdapter(MainActivity.this, customer_id, customer_name, customer_father, customer_village, customer_phone);
-        customAdapter = new CustomerAdapter(MainActivity.this,this, customer_id, customer_name, customer_father, customer_village, customer_phone);
-        recyclerView.setAdapter(customAdapter);
+        customerAdapter = new CustomerAdapter(MainActivity.this,this, customer_id, customer_name, customer_father, customer_village, customer_phone);
+        recyclerView.setAdapter(customerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
