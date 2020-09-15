@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Customer Name"
+        android:hint="Item Name"
         android:inputType="textPersonName"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Father Name"
+        android:hint="Metal Name"
         android:inputType="textPersonName"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextCustomerName"
@@ -33,43 +33,68 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName" />
 
     <EditText
-        android:id="@+id/editTextVillage"
+        android:id="@+id/editTextNumberDecimal"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Village"
-        android:inputType="textPersonName"
+        android:hint="Actual Weight in Grams"
+        android:inputType="numberDecimal"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextFatherName"
         app:layout_constraintStart_toStartOf="@+id/editTextFatherName"
         app:layout_constraintTop_toBottomOf="@+id/editTextFatherName" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextNumberDecimal2"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Phone No."
-        android:inputType="phone"
+        android:hint="Wastage Weight in Grams"
+        android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextVillage"
-        app:layout_constraintStart_toStartOf="@+id/editTextVillage"
-        app:layout_constraintTop_toBottomOf="@+id/editTextVillage" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal3"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Purity in %"
+        android:inputType="numberDecimal"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal4"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Metal Rate"
+        android:inputType="numberDecimal"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
 
     <Button
         android:id="@+id/btAddCustomer"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         android:background="#FF9800"
         android:padding="20dp"
-        android:text="Add Customer"
+        android:text="Add Item"
         android:textColor="#020202"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
-        app:layout_constraintStart_toStartOf="@+id/editTextPhone"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal4"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

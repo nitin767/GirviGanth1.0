@@ -19,7 +19,7 @@ public class AddCustomer extends AppCompatActivity {
         customer_input = findViewById(R.id.editTextCustomerName);
         father_input = findViewById(R.id.editTextFatherName);
         village_input = findViewById(R.id.editTextVillage);
-        phone_input = findViewById(R.id.editTextPhone2);
+        phone_input = findViewById(R.id.editTextPhone);
         add_customer = findViewById(R.id.btAddCustomer);
         add_customer.setOnClickListener(new View.OnClickListener() {
             @Override

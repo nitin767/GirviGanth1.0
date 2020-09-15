@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/itemLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/item_name_text"
+                android:layout_width="118dp"
+                android:layout_height="24dp"
+                android:text="Item1"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_metal_text"
+                android:layout_width="86dp"
+                android:layout_height="22dp"
+                android:text="Metal1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/item_name_text"
+                app:layout_constraintTop_toBottomOf="@+id/item_name_text" />
+
+            <TextView
+                android:id="@+id/item_purity_text"
+                android:layout_width="79dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Purity1"
+                android:textColor="#050505"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/metal_rate_text"
+                android:layout_width="75dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Metal Rate1"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/item_purity_text"
+                app:layout_constraintTop_toBottomOf="@+id/item_purity_text" />
+
+            <TextView
+                android:id="@+id/today_value_text"
+                android:layout_width="81dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="12dp"
+                android:text="Today Value1"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/metal_rate_text"
+                app:layout_constraintTop_toBottomOf="@+id/metal_rate_text" />
+
+            <TextView
+                android:id="@+id/wastage_weight_text"
+                android:layout_width="85dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="12dp"
+                android:text="Wastage Weight1"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/actual_weight_text"
+                app:layout_constraintTop_toBottomOf="@+id/actual_weight_text" />
+
+            <TextView
+                android:id="@+id/actual_weight_text"
+                android:layout_width="79dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="164dp"
+                android:layout_marginRight="164dp"
+                android:text="Actual Weight1"
+                android:textColor="#050505"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/net_weight_text"
+                android:layout_width="79dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="12dp"
+                android:text="Net Weight1"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/wastage_weight_text"
+                app:layout_constraintTop_toBottomOf="@+id/wastage_weight_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

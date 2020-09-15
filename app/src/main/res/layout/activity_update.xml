@@ -25,11 +25,12 @@
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Village"
+        android:hint="Father Name"
         android:inputType="textPersonName"
         android:padding="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextVillage2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextVillage2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextCustomerName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextCustomerName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName2" />
 
     <EditText
         android:id="@+id/editTextVillage2"
@@ -37,12 +38,12 @@
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Father Name"
+        android:hint="Village"
         android:inputType="textPersonName"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCustomerName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextCustomerName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextFatherName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextFatherName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFatherName2" />
 
     <EditText
         android:id="@+id/editTextPhone2"
@@ -53,15 +54,15 @@
         android:hint="Phone No."
         android:inputType="phone"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextFatherName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextFatherName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFatherName2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextVillage2"
+        app:layout_constraintStart_toStartOf="@+id/editTextVillage2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVillage2" />
 
     <Button
         android:id="@+id/btUpdateCustomer"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         android:background="#FF9800"
         android:padding="20dp"
         android:shadowColor="#FF9800"
@@ -77,7 +78,7 @@
         android:id="@+id/btDeleteCustomer"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="#FFC107"
         android:padding="20dp"
         android:shadowColor="#FF9800"
@@ -86,7 +87,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btUpdateCustomer"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btUpdateCustomer"
         app:layout_constraintTop_toBottomOf="@+id/btUpdateCustomer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

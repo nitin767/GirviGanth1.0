@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+public class CustomerAdapter  extends RecyclerView.Adapter<CustomerAdapter.MyViewHolder> {
 
     private Context context;
     //for re-fresh activity
     Activity activity;
     private ArrayList customer_id, customer_name, customer_father, customer_village, customer_phone;
-    CustomAdapter(Activity activity, Context context,
+    CustomerAdapter(Activity activity, Context context,
                          ArrayList customer_id,
                          ArrayList customer_name,
                          ArrayList customer_father,
@@ -40,7 +40,7 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_raw, parent, false);
+        View view = inflater.inflate(R.layout.customer_row, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -56,7 +56,7 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateActivity.class);
+                Intent intent = new Intent(context, UpdateCustomer.class);
                 intent.putExtra("id", String.valueOf(customer_id.get(position)));
                 intent.putExtra("customer", String.valueOf(customer_name.get(position)));
                 intent.putExtra("father", String.valueOf(customer_father.get(position)));

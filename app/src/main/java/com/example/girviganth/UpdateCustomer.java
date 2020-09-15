@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity extends AppCompatActivity {
+public class UpdateCustomer extends AppCompatActivity {
     EditText customer_input, father_input, village_input, phone_input;
     Button update_customer, delete_customer;
 
@@ -45,7 +45,7 @@ public class UpdateActivity extends AppCompatActivity {
                 village=village_input.getText().toString().trim();
                 phone=Integer.parseInt(phone_input.getText().toString().trim());
 
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateCustomer.this);
                 //call updateData
                 myDB.updateData(id, customer, father, village, phone);
             }
@@ -88,7 +88,7 @@ public class UpdateActivity extends AppCompatActivity {
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                    MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateCustomer.this);
                     myDB.deleteOneRow(id);
                     finish(); //automatically redirect to mainactivity
                 }
