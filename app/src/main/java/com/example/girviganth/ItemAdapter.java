@@ -58,7 +58,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        holder.item_name_txt.setText(String.valueOf(item_id.get(position)));
+        holder.item_name_txt.setText(String.valueOf(item_name.get(position)));
         holder.item_metal_txt.setText(String.valueOf(metal_name.get(position)));
         holder.actual_weight_txt.setText(String.valueOf(actual_weight.get(position)));
         holder.wastage_weight_txt.setText(String.valueOf(wastage_weight.get(position)));
