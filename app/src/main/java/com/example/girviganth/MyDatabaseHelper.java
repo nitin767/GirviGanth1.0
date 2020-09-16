@@ -27,8 +27,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_METAL = "metal_name";
     public static final String COLUMN_ACTUAL_WEIGHT = "actual_weight";
     public static final String COLUMN_WASTAGE_WEIGHT = "wastage_weight";
-    public static final String COLUMN_PURITY = "purity";
     public static final String COLUMN_NET_WEIGHT = "net_weight";
+    public static final String COLUMN_PURITY = "purity";
+    public static final String COLUMN_METAL_RATE = "metal_rate";
     public static final String COLUMN_TODAY_VALUE = "today_value";
 
     MyDatabaseHelper(@Nullable Context context) {
@@ -39,7 +40,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " +TABLE_NAME+ "(_id INTEGER PRIMARY KEY AUTOINCREMENT, customer_name TEXT, father_name TEXT, village_name TEXT, phone_no INTEGER)");
-        db.execSQL("CREATE TABLE " +ITEM_TABLE_NAME+ "(item_id INTEGER PRIMARY KEY AUTOINCREMENT, item_name TEXT, metal_name TEXT, actual_weight FLOAT, wastage_weight FLOAT, purity FLOAT, net_weight FLOAT, today_value FLOAT)");
+        db.execSQL("CREATE TABLE " +ITEM_TABLE_NAME+ "(item_id INTEGER PRIMARY KEY AUTOINCREMENT, _id INTEGER, item_name TEXT, metal_name TEXT, actual_weight FLOAT, wastage_weight FLOAT, net_weight FLOAT, purity FLOAT, metal_rate FLOAT, today_value FLOAT)");
     }
 
     @Override
@@ -70,6 +71,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // Read All Customer
     Cursor readAllData (){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -82,6 +84,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+
+    // Update Customer
     void updateData (String row_id, String customer, String father, String village, Integer phone) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -102,7 +106,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-        void deleteOneRow(String row_id){
+    // Delete One Customer
+    void deleteOneRow(String row_id){
             SQLiteDatabase db = this.getWritableDatabase();
             long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
             if (result == -1) {
@@ -112,5 +117,85 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             }
         }
 
+     // Add Item
 
+    void addItem (int customer_id, String item, String metal, float actual, float wastage, float purity, float rate){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        float net;
+        float value;
+        cv.put(COLUMN_ID, customer_id);
+        cv.put(COLUMN_ITEM, item);
+        cv.put(COLUMN_METAL, metal);
+        cv.put(COLUMN_ACTUAL_WEIGHT, actual);
+        cv.put(COLUMN_WASTAGE_WEIGHT, wastage);
+        net = actual - wastage;
+        cv.put(COLUMN_NET_WEIGHT, net);
+        cv.put(COLUMN_PURITY, purity);
+        cv.put(COLUMN_METAL_RATE, rate);
+        value = (net*purity*(rate/10));
+        cv.put(COLUMN_TODAY_VALUE, value);
+
+        long result = db.insert(ITEM_TABLE_NAME, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Added Successfully", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    // Read All Items
+    Cursor readAllItem (){
+        String query = "SELECT * FROM " + ITEM_TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+
+
+    }
+
+    // Update Items
+    void updateItem (String row_id, String item, String metal, float actual, float wastage, float purity, float rate) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        float net;
+        float value;
+        cv.put(COLUMN_ITEM, item);
+        cv.put(COLUMN_METAL, metal);
+        cv.put(COLUMN_ACTUAL_WEIGHT, actual);
+        cv.put(COLUMN_WASTAGE_WEIGHT, wastage);
+        net = actual - wastage;
+        cv.put(COLUMN_NET_WEIGHT, net);
+        cv.put(COLUMN_PURITY, purity);
+        cv.put(COLUMN_METAL_RATE, rate);
+        value = (net*purity*(rate/10));
+        cv.put(COLUMN_TODAY_VALUE, value);
+        try {
+            long result = db.update(ITEM_TABLE_NAME, cv, "item_id=?", new String[]{row_id});
+            if (result == -1) {
+                Toast.makeText(context, "Failed to Update", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Delete One Item
+    void deleteOneItem(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(ITEM_TABLE_NAME, "item_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to Delete", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Deleted Successfully!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

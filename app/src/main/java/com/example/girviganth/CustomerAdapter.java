@@ -56,14 +56,15 @@ public class CustomerAdapter  extends RecyclerView.Adapter<CustomerAdapter.MyVie
         holder.customerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateCustomer.class);
+                //Intent intent = new Intent(context, UpdateCustomer.class); commented by Shivi
+                Intent intent = new Intent(context, ItemActivity.class);
                 intent.putExtra("id", String.valueOf(customer_id.get(position)));
                 intent.putExtra("customer", String.valueOf(customer_name.get(position)));
                 intent.putExtra("father", String.valueOf(customer_father.get(position)));
                 intent.putExtra("village", String.valueOf(customer_village.get(position)));
                 intent.putExtra("phone", String.valueOf(customer_phone.get(position)));
                 //for re-fresh activity
-                // context.startActivity(intent);
+                //context.startActivity(intent);
                 activity.startActivityForResult(intent, 1);
             }
         });
