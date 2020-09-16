@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -23,7 +24,10 @@ public class ItemActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     RecyclerView recyclerView2;
     FloatingActionButton add_button2;
-    //TextView textViewCustomerName3
+    TextView textViewCustomerName3;
+    TextView textViewFatherName3;
+    TextView textViewVillage3;
+    TextView  textViewPhone3;
     MyDatabaseHelper myDB;
     ArrayList<String> item_id, item_name, metal_name;
     ArrayList<Float> actual_weight, wastage_weight, net_weight, purity, metal_rate, today_value;
@@ -36,8 +40,13 @@ public class ItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main); commented by Shivi
         setContentView(R.layout.activity_item);
+        linearLayout=findViewById(R.id.linearLayout);
         recyclerView2 = findViewById(R.id.recyclerView2);
         add_button2 = findViewById(R.id.add_button2);
+        textViewCustomerName3=(TextView)findViewById(R.id.textViewCustomerName3);
+        textViewFatherName3 = (TextView)findViewById(R.id.textViewFatherName3);
+        textViewVillage3 = (TextView)findViewById(R.id.textViewVillage3);
+        textViewPhone3 = (TextView)findViewById(R.id.textViewPhone3);
        // Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
         getAndSetIntentData();
         add_button2.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +69,15 @@ public class ItemActivity extends AppCompatActivity {
 
         storeDataInArrays();
          //for re-fresh Activity
-        itemAdapter = new ItemAdapter(ItemActivity.this,this, id,customer, father, village,phone, item_id, item_name, metal_name,
+       itemAdapter = new ItemAdapter(ItemActivity.this,this, id, item_id, item_name, metal_name,
                 actual_weight, wastage_weight, net_weight, purity, metal_rate, today_value);
-        recyclerView2.setAdapter(itemAdapter);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(ItemActivity.this));
+       try {
+           recyclerView2.setAdapter(itemAdapter);
+           recyclerView2.setLayoutManager(new LinearLayoutManager(ItemActivity.this));
+       }catch(Exception e){
 
+           Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+       }
     }
     //for re-fresh Activity
     @Override
@@ -82,14 +95,14 @@ public class ItemActivity extends AppCompatActivity {
         } else {
             while (cursor.moveToNext()){
                 item_id.add(cursor.getString(0));
-                item_name.add(cursor.getString(1));
-                metal_name.add(cursor.getString(2));
-                actual_weight.add(Float.parseFloat( cursor.getString(3)));
-                wastage_weight.add(Float.parseFloat( cursor.getString(4)));
-                net_weight.add(Float.parseFloat( cursor.getString(1)));
-                purity.add(Float.parseFloat( cursor.getString(2)));
-                metal_rate.add(Float.parseFloat( cursor.getString(3)));
-                today_value.add(Float.parseFloat( cursor.getString(4)));
+                item_name.add(cursor.getString(2));
+                metal_name.add(cursor.getString(3));
+                actual_weight.add(Float.parseFloat( cursor.getString(4)));
+                wastage_weight.add(Float.parseFloat( cursor.getString(5)));
+                net_weight.add(Float.parseFloat( cursor.getString(6)));
+                purity.add(Float.parseFloat( cursor.getString(7)));
+                metal_rate.add(Float.parseFloat( cursor.getString(8)));
+                today_value.add(Float.parseFloat( cursor.getString(9)));
 
             }
         }
@@ -107,11 +120,11 @@ public class ItemActivity extends AppCompatActivity {
             phone = Integer.valueOf(getIntent().getStringExtra("phone"));
 
             //Setting Intent Data
-           /* textViewCustomerName3.setText(customer);
-            father_input.setText(father);
-            village_input.setText(village);
-            phone_input.setText(phone.toString());
-*/
+            textViewCustomerName3.setText(customer);
+            textViewFatherName3.setText(father);
+            textViewVillage3.setText(village);
+            textViewPhone3.setText(phone.toString());
+
         } else {
             Toast.makeText(this, "No Data.", Toast.LENGTH_SHORT).show();
         }

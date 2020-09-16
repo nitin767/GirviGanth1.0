@@ -19,11 +19,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     private Context context;
     //for re-fresh activity
     Activity activity;
-    String id, customer, father, village;
-    Integer phone;
+    String id;
     private ArrayList item_id, item_name, metal_name, actual_weight, wastage_weight, net_weight, purity, metal_rate, today_value;
     ItemAdapter(Activity activity, Context context,
-                String customer_id,String customer, String father, String village,Integer phone,
+                String customer_id,
                 ArrayList item_id,
                 ArrayList item_name,
                 ArrayList metal_name,
@@ -36,10 +35,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         this.activity = activity; //for re-fresh activity
         this.context = context;
         this.id = customer_id;
-        this.customer = customer;
-        this.father = father;
-        this.village = village;
-        this.phone = phone;
         this.item_id = item_id;
         this.item_name = item_name;
         this.metal_name = metal_name;
