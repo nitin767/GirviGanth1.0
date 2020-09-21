@@ -9,18 +9,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ItemActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".AddCustomer"
-            android:label="Add Customer"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+<!--        <activity android:name=".Signup"-->
+<!--            android:parentActivityName=".AccSetupActivity" />-->
+
+        <activity android:name=".Signin"
+            android:parentActivityName=".Signup" />
+
+        <activity android:name=".AccSetupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddItem"
+            android:label="Add Item"
+            android:parentActivityName=".ItemActivity" />
+        <activity
+            android:name=".ItemActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddCustomer"
+            android:label="Add Customer"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".Signin">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
     </application>
 

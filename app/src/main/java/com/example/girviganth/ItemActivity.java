@@ -21,13 +21,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ItemActivity extends AppCompatActivity {
-    LinearLayout linearLayout;
+   // LinearLayout linearLayout;
     RecyclerView recyclerView2;
     FloatingActionButton add_button2;
     TextView textViewCustomerName3;
     TextView textViewFatherName3;
     TextView textViewVillage3;
-    TextView  textViewPhone3;
+    TextView textViewPhone3;
     MyDatabaseHelper myDB;
     ArrayList<String> item_id, item_name, metal_name;
     ArrayList<Float> actual_weight, wastage_weight, net_weight, purity, metal_rate, today_value;
@@ -40,19 +40,20 @@ public class ItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main); commented by Shivi
         setContentView(R.layout.activity_item);
-        linearLayout=findViewById(R.id.linearLayout);
+       // linearLayout=findViewById(R.id.linearLayout);
         recyclerView2 = findViewById(R.id.recyclerView2);
         add_button2 = findViewById(R.id.add_button2);
         textViewCustomerName3=(TextView)findViewById(R.id.textViewCustomerName3);
         textViewFatherName3 = (TextView)findViewById(R.id.textViewFatherName3);
         textViewVillage3 = (TextView)findViewById(R.id.textViewVillage3);
         textViewPhone3 = (TextView)findViewById(R.id.textViewPhone3);
-       // Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
+
         getAndSetIntentData();
         add_button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(ItemActivity.this, AddItem.class);
+                intent.putExtra("customer_id",id);
                 startActivity(intent);
                                           }
         } );
@@ -67,7 +68,7 @@ public class ItemActivity extends AppCompatActivity {
         metal_rate = new ArrayList<>();
         today_value = new ArrayList<>();
 
-        storeDataInArrays();
+        storeDataInArrays(Integer.parseInt(id));
          //for re-fresh Activity
        itemAdapter = new ItemAdapter(ItemActivity.this,this, id, item_id, item_name, metal_name,
                 actual_weight, wastage_weight, net_weight, purity, metal_rate, today_value);
@@ -88,8 +89,8 @@ public class ItemActivity extends AppCompatActivity {
         }
     }
 
-    void storeDataInArrays() {
-        Cursor cursor = myDB.readAllItem();
+    void storeDataInArrays(int customer_id) {
+        Cursor cursor = myDB.readAllItem(customer_id);
         if(cursor.getCount() == 0) {
             Toast.makeText(this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
