@@ -84,17 +84,32 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    // Read All Login
-    Cursor readAllLogin (){
-        String query = "SELECT * FROM " + LOGIN_TABLE_NAME;
+    // Read One Login
+    public String readOneLogin(String userName)
+    {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if(db != null) {
-            cursor = db.rawQuery(query, null);
+        Cursor cursor=db.query("login_detail", null, " username_name=?", new String[]{userName}, null, null, null);
+        if(cursor.getCount()<1) // UserName Not Exist
+        {
+            cursor.close();
+            return "NOT EXIST";
         }
-        return cursor;
+        cursor.moveToFirst();
+        String password= cursor.getString(cursor.getColumnIndex("password_name"));
+        cursor.close();
+        return password;
     }
+
+//    Cursor readAllLogin (){
+//        String query = "SELECT * FROM " + LOGIN_TABLE_NAME;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = null;
+//        if(db != null) {
+//            cursor = db.rawQuery(query, null);
+//        }
+//        return cursor;
+//    }
 
     // Update Password
     void updateLogin (String username, String password) {

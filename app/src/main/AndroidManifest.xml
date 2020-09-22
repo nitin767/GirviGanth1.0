@@ -15,7 +15,7 @@
         <activity android:name=".Signin"
             android:parentActivityName=".Signup" />
 
-        <activity android:name=".AccSetupActivity">
+        <activity android:name=".Signup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
