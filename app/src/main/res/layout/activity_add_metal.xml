@@ -7,35 +7,7 @@
     android:orientation="vertical"
     android:background="@color/lightwhite"
     android:padding="10dp"
-    tools:context=".AddMoreBranch">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinner_branch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/joinbtn"/>
-
-            <!--<ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_arrow_back_black_24dp"/>
-            <TextView
-                android:id="@+id/LogInbtn"
-                android:onClick="LognIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Log in"
-                android:gravity="end"
-                android:textColor="@color/blackcolor"
-                android:textSize="15dp"/>-->
-
-        </LinearLayout>
+    tools:context=".AddMetal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,42 +20,43 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
-            android:text="Create More \n     Branch"
+            android:text="Add Metal"
             android:textColor="@color/blackcolor"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextMoreBranchName"
+            android:id="@+id/editTextMetalName"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_marginTop="35dp"
             android:background="@drawable/btn"
             android:elevation="5dp"
-            android:hint="Branch Name"
+            android:hint="Metal Name"
             android:inputType="text"
             android:paddingLeft="15dp"
             android:textColorHint="@color/fullwhite" />
 
-        <Button
-            android:id="@+id/btAddMoreBranch"
+        <EditText
+            android:id="@+id/editTextMetalRate"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/joinbtn"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn"
             android:elevation="5dp"
-            android:text="Add More Branch"
-            android:textAllCaps="false"
-            android:textColor="@color/whitecolor" />
+            android:hint="Metal Rate"
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
         <Button
-            android:id="@+id/btMoveToMetal"
+            android:id="@+id/btAddMetal"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/joinbtn"
             android:elevation="5dp"
-            android:text="Move Next"
+            android:text="Create Metal"
             android:textAllCaps="false"
             android:textColor="@color/whitecolor" />
 

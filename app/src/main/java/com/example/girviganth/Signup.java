@@ -29,26 +29,33 @@ protected void onCreate(Bundle savedInstanceState) {
         btcreate_account.setOnClickListener(this);
 
 }
-        @Override
+        /*@Override
         protected void onDestroy() {
 // TODO Auto-generated method stub
                 MyDatabaseHelper myDB = new MyDatabaseHelper (Signup.this);
                 super.onDestroy();
 
                 myDB.close();
-        }
+        }*/
         private void loadSignin()
         {
                 startActivity(new Intent(this,Signin.class));
                 finish();
         }
+
+        private void loadAddBranch()
+        {
+                startActivity(new Intent(this,AddBranch.class));
+                finish();
+        }
+
         @Override
         public void onClick(View v) {
                 switch (v.getId())
                 {
                         case R.id.btCreateAccount:
                                 if(ValidateUser()){
-                                 loadSignin();
+                                 loadAddBranch();
                                 new PreferenceManager(this).writePreference();
                                 break;
                                 }

@@ -12,7 +12,7 @@
 
     <EditText
 
-        android:id="@+id/editTextUserName"
+        android:id="@+id/editTextBranchName"
 
         android:layout_width="match_parent"
 

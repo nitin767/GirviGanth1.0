@@ -15,7 +15,7 @@ public class AccSetupActivity extends AppCompatActivity implements View.OnClickL
 
     private ViewPager mPager;
     private int[] layouts = {R.layout.activity_signup,R.layout.activity_signin,R.layout.activity_add_branch,R.layout.activity_add_more_branch,
-    R.layout.activity_metal,R.layout.activity_add_more_metal};
+    R.layout.activity_add_metal,R.layout.activity_add_more_metal};
     private MpagerAdapter mpagerAdapter;
 
     private Button BnNext,btCreateAccount;//,BnSkip;

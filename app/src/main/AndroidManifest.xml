@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity android:name=".Signup"-->
-<!--            android:parentActivityName=".AccSetupActivity" />-->
-
-        <activity android:name=".Signin"
+        <activity android:name=".AddBranch"></activity>
+        <activity android:name=".AddMoreBranch"></activity>
+        <activity android:name=".AddMetal"></activity>
+        <!-- <activity android:name=".Signup" -->
+        <!-- android:parentActivityName=".AccSetupActivity" /> -->
+        <activity
+            android:name=".Signin"
             android:parentActivityName=".Signup" />
-
         <activity android:name=".Signup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +35,8 @@
             android:name=".AddCustomer"
             android:label="Add Customer"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:parentActivityName=".Signin">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

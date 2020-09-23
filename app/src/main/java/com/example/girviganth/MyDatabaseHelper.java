@@ -25,7 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String METAL_TABLE_NAME = "metal_detail";
     public static final String COLUMN_METAL_ID = "metal_id";
     public static final String COLUMN_METAL_NAME = "metal_name";
-    public static final String COLUMN_METAL_DATE = "metal_date";
+    //public static final String COLUMN_METAL_DATE = "metal_date";
     public static final String COLUMN_METAL_RATE = "metal_rate";
 
     public static final String CUSTOMER_TABLE_NAME = "customer_detail";
@@ -56,7 +56,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " +LOGIN_TABLE_NAME+ "(username_name TEXT PRIMARY KEY, password_name TEXT)");
         db.execSQL("CREATE TABLE " +BRANCH_TABLE_NAME+ "(branch_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_name TEXT)");
-        db.execSQL("CREATE TABLE " +METAL_TABLE_NAME+ "(metal_id INTEGER PRIMARY KEY AUTOINCREMENT, metal_name TEXT, metal_date DATE, metal_rate FLOAT)");
+        db.execSQL("CREATE TABLE " +METAL_TABLE_NAME+ "(metal_id INTEGER PRIMARY KEY AUTOINCREMENT, metal_name TEXT, metal_rate FLOAT)");
         db.execSQL("CREATE TABLE " +CUSTOMER_TABLE_NAME+ "(_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_id INTEGER, customer_name TEXT, father_name TEXT, village_name TEXT, phone_no INTEGER)");
         db.execSQL("CREATE TABLE " +ITEM_TABLE_NAME+ "(item_id INTEGER PRIMARY KEY AUTOINCREMENT, _id INTEGER, item_name TEXT, metal_id INTEGER, actual_weight FLOAT, wastage_weight FLOAT, net_weight FLOAT, purity FLOAT, today_value FLOAT)");
     }
@@ -202,12 +202,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Add Metal
-    void addMetal (String metalname, String metaldate, String metalrate){
+    void addMetal (String metalname, Float metalrate){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_METAL_NAME, metalname);
-        cv.put(COLUMN_METAL_DATE, metaldate);
+        //cv.put(COLUMN_METAL_DATE, metaldate);
         cv.put(COLUMN_METAL_RATE, metalrate);
         long result = db.insert(METAL_TABLE_NAME, null, cv);
         if (result == -1) {
