@@ -81,6 +81,8 @@ public class AddMoreBranch extends AppCompatActivity {
     private void loadBranchSpinner(){
         List<String> list = new ArrayList<String>();
         Cursor cursor = myDB.readAllBranch();
+        branch_id.clear();
+        branch_name.clear();
         if(cursor.getCount() == 0) {
             Toast.makeText(this, "No Data.", Toast.LENGTH_SHORT).show();
         } else {
