@@ -55,10 +55,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " +LOGIN_TABLE_NAME+ "(username_name TEXT PRIMARY KEY, password_name TEXT)");
-        db.execSQL("CREATE TABLE " +BRANCH_TABLE_NAME+ "(branch_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_name TEXT)");
-        db.execSQL("CREATE TABLE " +METAL_TABLE_NAME+ "(metal_id INTEGER PRIMARY KEY AUTOINCREMENT, metal_name TEXT, metal_rate FLOAT)");
-        db.execSQL("CREATE TABLE " +CUSTOMER_TABLE_NAME+ "(_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_id INTEGER, customer_name TEXT, father_name TEXT, village_name TEXT, phone_no INTEGER)");
-        db.execSQL("CREATE TABLE " +ITEM_TABLE_NAME+ "(item_id INTEGER PRIMARY KEY AUTOINCREMENT, _id INTEGER, item_name TEXT, metal_id INTEGER, actual_weight FLOAT, wastage_weight FLOAT, net_weight FLOAT, purity FLOAT, today_value FLOAT)");
+        db.execSQL("CREATE TABLE " +BRANCH_TABLE_NAME+ "(branch_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_name TEXT NOT NULL)");
+        db.execSQL("CREATE TABLE " +METAL_TABLE_NAME+ "(metal_id INTEGER PRIMARY KEY AUTOINCREMENT, metal_name TEXT NOT NULL, metal_rate FLOAT NOT NULL)");
+        db.execSQL("CREATE TABLE " +CUSTOMER_TABLE_NAME+ "(_id INTEGER PRIMARY KEY AUTOINCREMENT, branch_id INTEGER NOT NULL, customer_name TEXT NOT NULL, father_name TEXT NOT NULL, village_name TEXT NOT NULL, phone_no INTEGER, FOREIGN KEY (branch_id) REFERENCES " + BRANCH_TABLE_NAME + " (branch_id))");
+        db.execSQL("CREATE TABLE " +ITEM_TABLE_NAME+ "(item_id INTEGER PRIMARY KEY AUTOINCREMENT, _id INTEGER NOT NULL, item_name TEXT NOT NULL, metal_name TEXT NOT NULL, actual_weight FLOAT NOT NULL, wastage_weight FLOAT NOT NULL, net_weight FLOAT NOT NULL, purity FLOAT NOT NULL, today_value FLOAT NOT NULL, FOREIGN KEY (_id) REFERENCES " + CUSTOMER_TABLE_NAME + " (_id))");
     }
 
     @Override
@@ -264,10 +264,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Add Customer
-    void addCustomer (String customer, String father, String village, int phone){
+    void addCustomer (int branch_id, String customer, String father, String village, int phone){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(COLUMN_BRANCH_ID, branch_id);
         cv.put(COLUMN_CUSTOMER, customer);
         cv.put(COLUMN_FATHER, father);
         cv.put(COLUMN_VILLAGE, village);
@@ -336,14 +336,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         float value;
         cv.put(COLUMN_ID, customer_id);
         cv.put(COLUMN_ITEM, item);
-        cv.put(COLUMN_METAL, metal);
+        cv.put(COLUMN_METAL_NAME, metal);
         cv.put(COLUMN_ACTUAL_WEIGHT, actual);
         cv.put(COLUMN_WASTAGE_WEIGHT, wastage);
-        net = actual - wastage;
+        net = (actual - wastage);
         cv.put(COLUMN_NET_WEIGHT, net);
         cv.put(COLUMN_PURITY, purity);
         cv.put(COLUMN_METAL_RATE, rate);
-        value = (net*purity*(rate/10));
+        value = ((net*purity)*(rate/10));
         cv.put(COLUMN_TODAY_VALUE, value);
 
         long result = db.insert(ITEM_TABLE_NAME, null, cv);
@@ -377,14 +377,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         float net;
         float value;
         cv.put(COLUMN_ITEM, item);
-        cv.put(COLUMN_METAL, metal);
+        cv.put(COLUMN_METAL_NAME, metal);
         cv.put(COLUMN_ACTUAL_WEIGHT, actual);
         cv.put(COLUMN_WASTAGE_WEIGHT, wastage);
-        net = actual - wastage;
+        net = (actual - wastage);
         cv.put(COLUMN_NET_WEIGHT, net);
         cv.put(COLUMN_PURITY, purity);
         cv.put(COLUMN_METAL_RATE, rate);
-        value = (net*purity*(rate/10));
+        value = ((net*purity)*(rate/10));
         cv.put(COLUMN_TODAY_VALUE, value);
         try {
             long result = db.update(ITEM_TABLE_NAME, cv, "item_id=?", new String[]{row_id});

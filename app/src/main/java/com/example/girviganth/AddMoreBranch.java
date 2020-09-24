@@ -20,6 +20,7 @@ import java.util.List;
 public class AddMoreBranch extends AppCompatActivity {
     EditText more_branch_input;
     Button bt_more_branch, bt_move_to_metal;
+
     Spinner spinner_branch;
     MyDatabaseHelper myDB;
     ArrayList<String> branch_id, branch_name;
@@ -30,9 +31,9 @@ public class AddMoreBranch extends AppCompatActivity {
         setContentView(R.layout.activity_add_more_branch);
 
         more_branch_input = findViewById(R.id.editTextMoreBranchName);
-
         bt_more_branch = findViewById(R.id.btAddMoreBranch);
         bt_move_to_metal = findViewById(R.id.btMoveToMetal);
+
         spinner_branch=findViewById(R.id.spinner_branch);
         branch_id = new ArrayList<>();
         branch_name = new ArrayList<>();
@@ -43,16 +44,12 @@ public class AddMoreBranch extends AppCompatActivity {
                                        long id) {
                 // On selecting a spinner item
                 String label = parent.getItemAtPosition(position).toString();
-
                 // Showing selected spinner item
                 Toast.makeText(parent.getContext(), "You selected: " + label,
                         Toast.LENGTH_LONG).show();
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
         loadBranchSpinner();

@@ -15,9 +15,7 @@
         <activity android:name=".AddMoreMetal"></activity>
         <!-- <activity android:name=".Signup" -->
         <!-- android:parentActivityName=".AccSetupActivity" /> -->
-        <activity
-            android:name=".Signin"
-            />
+        <activity android:name=".Signin"></activity>
         <activity android:name=".Signup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,9 +36,6 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"/>
-
-
-
     </application>
 
 </manifest>
