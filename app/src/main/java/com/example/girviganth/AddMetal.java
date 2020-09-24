@@ -26,14 +26,14 @@ public class AddMetal extends AppCompatActivity {
                 MyDatabaseHelper myDB = new MyDatabaseHelper (AddMetal.this);
                 myDB.addMetal(metal_input.getText().toString().trim(),
                         Float.parseFloat(metal_rate.getText().toString().trim()));
-                //loadAddMoreBranch();
+                loadAddMoreMetal();
             }
         });
     }
 
     private void loadAddMoreMetal()
     {
-        startActivity(new Intent(this,AddMoreBranch.class));
+        startActivity(new Intent(this,AddMoreMetal.class));
         finish();
     }
 }

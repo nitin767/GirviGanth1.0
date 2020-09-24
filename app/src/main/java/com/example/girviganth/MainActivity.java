@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             while (cursor.moveToNext()){
                 customer_id.add(cursor.getString(0));
-                customer_name.add(cursor.getString(1));
-                customer_father.add(cursor.getString(2));
-                customer_village.add(cursor.getString(3));
-                customer_phone.add(cursor.getString(4));
+                customer_name.add(cursor.getString(2));
+                customer_father.add(cursor.getString(3));
+                customer_village.add(cursor.getString(4));
+                customer_phone.add(cursor.getString(5));
 
             }
         }

@@ -38,7 +38,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String ITEM_TABLE_NAME = "item_detail";
     public static final String COLUMN_ITEM_ID = "item_id";
     public static final String COLUMN_ITEM = "item_name";
-    public static final String COLUMN_METAL = "metal_name";
+    //public static final String COLUMN_METAL_ID = "metal_id";
     public static final String COLUMN_ACTUAL_WEIGHT = "actual_weight";
     public static final String COLUMN_WASTAGE_WEIGHT = "wastage_weight";
     public static final String COLUMN_NET_WEIGHT = "net_weight";

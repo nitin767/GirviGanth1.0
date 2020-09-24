@@ -1,57 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/lightwhite"
+    android:padding="10dp"
+    tools:context=".AddMoreMetal">
 
-
-
-
-    <EditText
-
-        android:id="@+id/editTextBranchName"
-
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:orientation="horizontal">
 
-        android:layout_height="wrap_content"
+        <Spinner
+            android:id="@+id/spinner_metal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/joinbtn"/>
 
-        android:hint="Metal Name"
+        <!--<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp"/>
+        <TextView
+            android:id="@+id/LogInbtn"
+            android:onClick="LognIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log in"
+            android:gravity="end"
+            android:textColor="@color/blackcolor"
+            android:textSize="15dp"/>-->
 
-        >
+    </LinearLayout>
 
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Metal Rate"
-        android:inputType="textPassword" />
-
-
-    <Button
-
-        android:id="@+id/btAddMoreMetal"
-
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:text="Create More \n     Metal"
+            android:textColor="@color/blackcolor"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-        android:text="ADD MORE METAL" />
+        <EditText
+            android:id="@+id/editTextMoreMetalName"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Metal Name"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <!--<Button
+        <EditText
+            android:id="@+id/editTextMoreMetalRate"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Metal Rate"
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-        android:id="@+id/buttonBranch2"
+        <Button
+            android:id="@+id/btAddMoreMetal"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:elevation="5dp"
+            android:text="Add More Metal"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
 
-        android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btFinish"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:elevation="5dp"
+            android:text="Finish"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
 
-        android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="By Pressing 'Join Us' You agree\n     to our trems and conditions"
+            android:textColor="@color/fullwhite"
+            android:layout_marginTop="25dp"/>
 
-        android:text="FINISH" />-->
+    </LinearLayout>
+
 
 
 </LinearLayout>
