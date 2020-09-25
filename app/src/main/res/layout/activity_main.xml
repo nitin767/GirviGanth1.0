@@ -30,26 +30,33 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:padding="5dp"
-                app:srcCompat="@drawable/photo" />
+                app:srcCompat="@drawable/home" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="46dp"
                 android:layout_weight="1"
-                android:fontFamily="casual"
-                android:paddingLeft="10dp"
+                android:fontFamily="@font/aladin"
+                android:paddingLeft="15dp"
                 android:paddingTop="10dp"
-                android:text="Instagram"
+                android:text="GirviGanth"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="50dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:background="@color/lightwhite"
+                android:fontFamily="@font/aladin"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -58,18 +65,19 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:padding="5dp"
-                app:srcCompat="@drawable/television" />
+                android:paddingLeft="10dp"
+                app:srcCompat="@drawable/search" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="10dp"
                 android:padding="5dp"
-                app:srcCompat="@drawable/send" />
+                app:srcCompat="@drawable/menu" />
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -78,10 +86,11 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+        app:layout_constraintTop_toBottomOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_button"

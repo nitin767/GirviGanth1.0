@@ -34,7 +34,7 @@
             android:label="Add Customer"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".MainActivity"/>
+            android:name=".MainActivity" />
     </application>
 
 </manifest>

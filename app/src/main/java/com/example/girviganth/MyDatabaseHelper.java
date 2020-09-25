@@ -283,8 +283,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Read All Customer
-    Cursor readAllData (){
-        String query = "SELECT * FROM " + CUSTOMER_TABLE_NAME;
+    Cursor readAllData (int branch_id){
+        String query = "SELECT * FROM " + CUSTOMER_TABLE_NAME+" where branch_id="+branch_id;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
