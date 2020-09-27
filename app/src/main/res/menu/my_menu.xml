@@ -3,11 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:title="@string/app_name"
         android:hint="@string/search_hint"
-        android:icon="@drawable/search"
-        app:showAsAction="collapseActionView|ifRoom"
-        app:actionViewClass="android.widget.SearchView"/>
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <!--<item android:id="@+id/item1" android:title="Placeholder"></item>-->
+
+
+            <!--
+            android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
+            android:icon="@drawable/search""android.support.v7.widget.SearchView "/>-->
 
 </menu>
 

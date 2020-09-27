@@ -2,6 +2,7 @@ package com.example.girviganth;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
+
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
@@ -63,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
                 String label = parent.getItemAtPosition(position).toString();
                 selectedVal =Integer.parseInt( branch_id.get(position));
                 // Showing selected spinner item
-                Toast.makeText(parent.getContext(), "You selected: " + label +" "+selectedVal,
-                        Toast.LENGTH_LONG).show();
+               //Toast.makeText(parent.getContext(), "You selected: " + label +" "+selectedVal,
+                        //Toast.LENGTH_LONG).show();
                 storeDataInArrays(selectedVal);
                 //for re-fresh Activity
+               /* Toast.makeText(parent.getContext(), parent.getContext().toString(),
+                        Toast.LENGTH_LONG).show();*/
                 customerAdapter = new CustomerAdapter(MainActivity.this,parent.getContext(), customer_id, customer_name, customer_father, customer_village, customer_phone);
                 recyclerView.setAdapter(customerAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
@@ -116,6 +122,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    void storeDataInArraysbySearch(int branch_id,String search) {
+        customer_id.clear();
+        customer_name.clear();
+        customer_father.clear();
+        customer_village.clear();
+        customer_phone.clear();
+        customer_branch.clear();
+        Cursor cursor = myDB.getCustomerListByKeyword(branch_id,search);
+        String count=String.valueOf( cursor.getCount());
+        //Toast.makeText(this,String.valueOf( cursor.getCount()), Toast.LENGTH_SHORT).show();
+        if(cursor.getCount() == 0) {
+            Toast.makeText(this, "No Data.", Toast.LENGTH_SHORT).show();
+        } else {
+//            boolean b = cursor.moveToNext();
+/*
+            customer_id.add("1");
+            customer_branch.add("1");
+            customer_name.add("hduey");
+            customer_father.add("test");
+            customer_village.add("test");
+            customer_phone.add("1235");*/
+            while (cursor.moveToNext()){
+                customer_id.add(cursor.getString(0));
+                customer_branch.add(cursor.getString(1));
+                customer_name.add(cursor.getString(2));
+                customer_father.add(cursor.getString(3));
+                customer_village.add(cursor.getString(4));
+                customer_phone.add(cursor.getString(5));
+            }
+        }
+    }
+
     private void loadBranchSpinner(){
         List<String> list = new ArrayList<String>();
         Cursor cursor = myDB.readAllBranch();
@@ -138,39 +176,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public void onResume(){
+        super.onResume();
+
+    }
+
+    @Override
+    //@TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.my_menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-        SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
-        searchView.setQueryHint("Search Customer");
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+         //   SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+           // searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
+            searchView.setQueryHint("Search Customer");
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                Log.d(TAG, "onQueryTextSubmit ");
-                cursor=studentRepo.getStudentListByKeyword(s);
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    //Log.d(TAG, "onQueryTextSubmit ");
+              /*  Cursor cursor=myDB.getCustomerListByKeyword(selectedVal, s);
                 if (cursor==null){
                     Toast.makeText(MainActivity.this,"No records found!",Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(MainActivity.this, cursor.getCount() + " records found!",Toast.LENGTH_LONG).show();
+                }*/
+
+                    storeDataInArraysbySearch(selectedVal, s);
+                    //Toast.makeText(MainActivity.this, searchView.getContext().toString(),Toast.LENGTH_LONG).show();
+                    //for re-fresh Activity
+                    customerAdapter = new CustomerAdapter(MainActivity.this,searchView.getContext() , customer_id, customer_name, customer_father, customer_village, customer_phone);
+             /*       customerAdapter = new CustomerAdapter(MainActivity.this, getParent().getBaseContext()
+                            , customer_id, customer_name, customer_father, customer_village, customer_phone);*/
+                    recyclerView.setAdapter(customerAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+                    // customerAdapter.swapCursor(cursor);
+                    return true;
                 }
-                customerAdapter.swapCursor(cursor);
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String s) {
-                Log.d(TAG, "onQueryTextChange ");
-                cursor=studentRepo.getStudentListByKeyword(s);
-                if (cursor!=null){
-                    customAdapter.swapCursor(cursor);
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    //Log.d(TAG, "onQueryTextChange ");
+                  /*  storeDataInArraysbySearch(selectedVal, s);
+                 //   Toast.makeText(MainActivity.this, searchView.getContext().toString(),Toast.LENGTH_LONG).show();
+                    //for re-fresh Activity
+                    customerAdapter = new CustomerAdapter(MainActivity.this, searchView.getContext(), customer_id, customer_name, customer_father, customer_village, customer_phone);
+                    recyclerView.setAdapter(customerAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));*/
+                    return false;
                 }
-                return false;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
+            });
+            return super.onCreateOptionsMenu(menu);
+        //}
+        //return  true;
     }
 }

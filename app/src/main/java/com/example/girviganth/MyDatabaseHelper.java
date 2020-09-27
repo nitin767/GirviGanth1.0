@@ -292,7 +292,32 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
 
+    public Cursor  getCustomerListByKeyword(int branch_id, String search) {
+        //Open connection to read only
+        //SQLiteDatabase db = dbHelper.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + CUSTOMER_TABLE_NAME+" where branch_id="+branch_id+
+                " AND customer_name LIKE '%" +search + "%'";
+
+       // Cursor cursor = db.rawQuery(query, null);
+        // looping through all rows and adding to list
+/*
+
+        if (cursor == null) {
+            return null;
+        } else if (!cursor.moveToFirst()) {
+            cursor.close();
+            return null;
+        }
+        return cursor;
+*/
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
 
     }
 
