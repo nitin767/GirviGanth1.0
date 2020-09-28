@@ -6,17 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.TargetApi;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -175,11 +169,11 @@ public class MainActivity extends AppCompatActivity {
         spinner_branch.setAdapter(dataAdapter);
     }
 
-    @Override
+    /*@Override
     public void onResume(){
         super.onResume();
 
-    }
+    }*/
 
     @Override
     //@TargetApi(Build.VERSION_CODES.HONEYCOMB)
