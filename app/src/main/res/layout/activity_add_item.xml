@@ -19,31 +19,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextMetalName"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="197dp"
+        android:layout_height="47dp"
         android:ems="10"
         android:hint="Metal Name"
         android:inputType="textPersonName"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
         app:layout_constraintStart_toStartOf="@+id/editTextItemName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextItemName" />
+        tools:layout_editor_absoluteY="176dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/btSelectMetal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
+        tools:layout_editor_absoluteY="175dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextActualWeight"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Actual Weight in Grams"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextMetalName"
-        app:layout_constraintStart_toStartOf="@+id/editTextMetalName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMetalName" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
+        app:layout_constraintStart_toStartOf="@+id/editTextItemName"
+        tools:layout_editor_absoluteY="239dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextWastageWeight"
@@ -97,4 +104,6 @@
         app:layout_constraintEnd_toEndOf="@+id/editTextMetalRate"
         app:layout_constraintStart_toStartOf="@+id/editTextMetalRate"
         app:layout_constraintTop_toBottomOf="@+id/editTextMetalRate" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
