@@ -229,8 +229,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
-
-
     }
 
     // Update Metal Rate
@@ -354,7 +352,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
      // Add Item
-    void addItem (int customer_id, String item, String metal, float actual, float wastage, float purity, float rate){
+    void addItem (int customer_id, String item, String metal, float actual, float wastage, float purity,float rate){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         float net;
@@ -367,8 +365,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         net = (actual - wastage);
         cv.put(COLUMN_NET_WEIGHT, net);
         cv.put(COLUMN_PURITY, purity);
-        cv.put(COLUMN_METAL_RATE, rate);
-        value = ((net*purity)*(rate/10));
+       // cv.put(COLUMN_METAL_RATE, rate); //rate
+        value = ((net*purity)*(rate/10)); //rate
         cv.put(COLUMN_TODAY_VALUE, value);
 
         long result = db.insert(ITEM_TABLE_NAME, null, cv);
@@ -391,8 +389,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
-
-
     }
 
     // Update Items

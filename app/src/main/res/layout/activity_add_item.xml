@@ -1,109 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCustomer">
+    android:orientation="vertical"
+    android:background="@color/lightwhite"
+    android:padding="10dp"
+    tools:context=".AddItem">
 
-    <EditText
-        android:id="@+id/editTextItemName"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:hint="Item Name"
-        android:inputType="textPersonName"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/editTextItemName"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Item Name"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <TextView
-        android:id="@+id/editTextMetalName"
-        android:layout_width="197dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:hint="Metal Name"
-        android:inputType="textPersonName"
-        android:padding="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextItemName"
-        tools:layout_editor_absoluteY="176dp"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/btSelectMetal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select"
-        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
-        tools:layout_editor_absoluteY="175dp"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/editTextMetalName"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Metal Name"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <EditText
-        android:id="@+id/editTextActualWeight"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:hint="Actual Weight in Grams"
-        android:inputType="numberDecimal"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"
-        app:layout_constraintStart_toStartOf="@+id/editTextItemName"
-        tools:layout_editor_absoluteY="239dp"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btSelectMetal"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:elevation="5dp"
+            android:text="Select Metal"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
 
-    <EditText
-        android:id="@+id/editTextWastageWeight"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Wastage Weight in Grams"
-        android:inputType="numberDecimal"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextActualWeight"
-        app:layout_constraintStart_toStartOf="@+id/editTextActualWeight"
-        app:layout_constraintTop_toBottomOf="@+id/editTextActualWeight" />
+        <EditText
+            android:id="@+id/editTextActualWeight"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Actual Weight in Grams"
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <EditText
-        android:id="@+id/editTextPurity"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Purity in %"
-        android:inputType="numberDecimal"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextWastageWeight"
-        app:layout_constraintStart_toStartOf="@+id/editTextWastageWeight"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWastageWeight" />
+        <EditText
+            android:id="@+id/editTextWastageWeight"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Wastage Weight in Grams"
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <EditText
-        android:id="@+id/editTextMetalRate"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Metal Rate"
-        android:inputType="numberDecimal"
-        android:padding="20dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextPurity"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPurity" />
+        <EditText
+            android:id="@+id/editTextPurity"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint=" Purity in % "
+            android:inputType="numberDecimal"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-    <Button
-        android:id="@+id/btAddItem"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:background="#FF9800"
-        android:padding="20dp"
-        android:text="Add Item"
-        android:textColor="#020202"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextMetalRate"
-        app:layout_constraintStart_toStartOf="@+id/editTextMetalRate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMetalRate" />
+        <Button
+            android:id="@+id/btAddItem"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:elevation="5dp"
+            android:text="Add Item"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
+
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".AddCustomer">-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextItemName"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Item Name"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/editTextMetalName"-->
+<!--        android:layout_width="197dp"-->
+<!--        android:layout_height="47dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Metal Name"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextItemName"-->
+<!--        tools:layout_editor_absoluteY="176dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
+<!--    <Button-->
+<!--        android:id="@+id/btSelectMetal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Select"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"-->
+<!--        tools:layout_editor_absoluteY="175dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextActualWeight"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Actual Weight in Grams"-->
+<!--        android:inputType="numberDecimal"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/editTextItemName"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextItemName"-->
+<!--        tools:layout_editor_absoluteY="239dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextWastageWeight"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Wastage Weight in Grams"-->
+<!--        android:inputType="numberDecimal"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/editTextActualWeight"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextActualWeight"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextActualWeight" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextPurity"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Purity in %"-->
+<!--        android:inputType="numberDecimal"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/editTextWastageWeight"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextWastageWeight"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextWastageWeight" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextMetalRate"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Metal Rate"-->
+<!--        android:inputType="numberDecimal"-->
+<!--        android:padding="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextPurity"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextPurity" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btAddItem"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="#FF9800"-->
+<!--        android:padding="20dp"-->
+<!--        android:text="Add Item"-->
+<!--        android:textColor="#020202"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/editTextMetalRate"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextMetalRate"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextMetalRate" />-->
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
